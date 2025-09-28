@@ -37,7 +37,7 @@ In R:
 
 ```r
 # Ensure you're in the same folder or provide full path
-source("profiling_gwas.R.R")
+source("profiling_gwas.R")
 ```
 
 ## Requirements
