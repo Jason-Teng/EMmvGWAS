@@ -25,7 +25,7 @@ vc_estimation <- function(P, r, name="gwas", X = rep(1,nrow(P))){
   start_time <- Sys.time()
   
   if (is.vector(P)) {
-    Y_sub <- matrix(P, ncol = 1)
+    P <- matrix(P, ncol = 1)
   }
   if (is.null(colnames(P))) {
     colnames(P) <- paste0("trait", seq_len(ncol(P)))
