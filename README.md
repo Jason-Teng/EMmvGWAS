@@ -30,7 +30,7 @@ This repository contains an R implementation of a multivariate genome-wide assoc
 Clone the repository and make sure the profiling_gwas.R file is in the same folder where you're working.
 
 ```bash
-git clone https://github.com/Jason-Teng/mvGWAS.git
+git clone https://github.com/Jason-Teng/EMmvGWAS.git
 ```
 
 In R:
@@ -96,7 +96,7 @@ Example scripts and data are available in the `example/` directory.
 
 If you use this method in your research, please cite:
 
-> Teng, C.-S., Xu, S., et al. (2025). A Multivariate GWAS Method for High-Dimensional Phenotypes. *In preparation.*
+> *In preparation.*
 
 ## License
 
