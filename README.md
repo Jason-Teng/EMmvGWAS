@@ -96,7 +96,7 @@ Example scripts and data are available in the `example/` directory.
 
 If you use this method in your research, please cite:
 
-> *In preparation.*
+> *Under review.*
 
 ## License
 
