@@ -27,35 +27,35 @@ This repository contains an R implementation of a multivariate genome-wide assoc
 
 ## Installation
 
-Clone the repository and make sure the profiling_gwas.R file is in the same folder where you're working.
-
-```bash
-git clone https://github.com/Jason-Teng/EMmvGWAS.git
-```
+You can install the development version of EMmvGWAS directly from GitHub using devtools. This will automatically handle the installation of all required dependencies.
 
 In R:
 
 ```r
-# Ensure you're in the same folder or provide full path
-source("profiling_gwas.R")
+# If you don't have devtools installed:
+# install.packages("devtools")
+
+devtools::install_github("Jason-Teng/EMmvGWAS")
+```
+
+## Usage 
+After installation, load the package in your R session to access the functions:
+```r
+library(EMmvGWAS)
 ```
 
 ## Requirements
 
-This method is implemented in base R and depends on the following packages:
+The package will automatically attempt to install these dependencies during the devtools process:
 
-```r
-install.packages(c("doParallel", "foreach", "RSpectra"))
-```
+- doParallel
+- foreach
+- RSpectra
 
-Tested on R version ≥ 4.0.
 
 ## Example Usage
 
 ```r
-library(doParallel)
-library(foreach)
-library(RSpectra)
 result <- gwas_all(K, P, Z)
 ```
 
