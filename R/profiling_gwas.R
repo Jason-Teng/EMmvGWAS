@@ -1,8 +1,11 @@
-library(doParallel) # parallel computing
-library(foreach) # parallel computing 
-library(RSpectra) # spectral decomposition
+#' @import doParallel
+#' @import foreach
+#' @import RSpectra
+#' @importFrom stats pchisq
+NULL
 
 ###################  function for GWAS  ##################
+#' @export
 eigen_trans <- function(K, npc = nrow(K)){
   message("Starting Eigen Decomposition of GRM...")
   start_time <- Sys.time()
@@ -17,7 +20,7 @@ eigen_trans <- function(K, npc = nrow(K)){
   return(r)
 }
 
-
+#' @export
 vc_estimation <- function(P, r, name="gwas", X = rep(1,nrow(P))){
   # “-o [prefix]” specifies output file prefix.
   ######### transformation
@@ -96,7 +99,7 @@ vc_estimation <- function(P, r, name="gwas", X = rep(1,nrow(P))){
   return(lambda)
 }
 
-
+#' @export
 semi_gwas <- function(P, r, Z, lambda, name="gwas", X=rep(1,nrow(P)),num_cores=1){
   # Z: genexsample
   message("Starting GWAS...")
@@ -175,6 +178,7 @@ semi_gwas <- function(P, r, Z, lambda, name="gwas", X=rep(1,nrow(P)),num_cores=1
   return(result_scan)
 }
 
+#' @export
 gwas_all <- function(K, P, Z, name="gwas", X=rep(1,nrow(P)),num_cores=1){
   r <- eigen_trans(K)
   lambda <- vc_estimation(P, r, name, X) 
