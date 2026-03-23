@@ -2,19 +2,19 @@
 # Multivariate GWAS Example Script using profiling_gwas.R
 # ===================================================
 
-# Load required libraries
-library(doParallel) 
-library(foreach) 
-library(RSpectra) 
+# INSTALLATION (Only needs to be run once)
+# if (!require("devtools")) install.packages("devtools")
+# devtools::install_github("Jason-Teng/EMmvGWAS")
 
-# Load the multivariate GWAS functions
-source("profiling_gwas.R")
+# Load the package
+library(EMmvGWAS)
 
 # ---------------------------------------------------
 # Step 1: Read and prepare phenotype data
 # ---------------------------------------------------
 # traits are in columns 2 to 5 of the CSV file
-Phenotypes = read.csv("RIL-Phenotypes.csv")
+phe_url <- "https://raw.githubusercontent.com/Jason-Teng/EMmvGWAS/main/example/RIL-Phenotypes.csv"
+Phenotypes = read.csv(phe_url)
 P = scale(Phenotypes[,2:5,drop = FALSE]) # standardize the traits
 head(P)
 
@@ -22,7 +22,8 @@ head(P)
 # Step 2: Read and prepare genotype data
 # ---------------------------------------------------
 # Assumes the first column is SNP ID; the rest are genotype values (-1/0/1)
-Genotypes <- read.csv("RIL-Genotypes.csv")
+gen_url  <- "https://raw.githubusercontent.com/Jason-Teng/EMmvGWAS/main/example/RIL-Genotypes.csv"
+Genotypes <- read.csv(gen_url)
 Z <- as.matrix(Genotypes[,2:ncol(Genotypes)]) # convert to numeric matrix
 head(Z)
 
@@ -56,7 +57,8 @@ result <- semi_gwas(P, r, Z, lambda, name="gwas",num_cores=3)
 # ---------------------------------------------------
 
 # Load SNP position information
-map <- read.csv("map.csv")
+map_url <- "https://raw.githubusercontent.com/Jason-Teng/EMmvGWAS/main/example/map.csv"
+map <- read.csv(map_url)
 
 # Build the GWAS result data frame in qqman format
 library(qqman)
