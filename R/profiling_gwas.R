@@ -127,7 +127,7 @@ semi_gwas <- function(P, r, Z, lambda, name="gwas", X=rep(1,nrow(P)),num_cores=1
   cl <- makeCluster(num_cores)
   registerDoParallel(cl)
 
-  result_scan <- foreach(k = 1:p, .combine = rbind, .packages = "Matrix") %dopar% {
+  result_scan <- foreach(k = 1:p, .combine = rbind, .packages = c("RSpectra", "EMmvGWAS")) %dopar% {
     Z_k <- H%*%Z[k, ]
     # Z_k <- Z[,k] # this one for transform genotype first
     Axx <- matrix(0,m,m)
