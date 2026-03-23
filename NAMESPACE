@@ -1,1 +1,11 @@
-exportPattern("^[[:alpha:]]+")
+# Functions to show to the user
+export(eigen_trans)
+export(vc_estimation)
+export(semi_gwas)
+export(gwas_all)
+
+# External packages your code needs
+import(doParallel)
+import(foreach)
+import(RSpectra)
+importFrom(stats, pchisq)
