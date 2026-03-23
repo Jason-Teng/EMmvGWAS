@@ -7,5 +7,5 @@ export(gwas_all)
 # External packages your code needs
 import(doParallel)
 import(foreach)
-import(RSpectra)
+importFrom(RSpectra, eigs_sym)
 importFrom(stats, pchisq)
