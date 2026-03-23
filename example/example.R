@@ -79,5 +79,5 @@ manhattan(gwasinfo,
           main="Multivariate GWAS",
           logp = FALSE,
           genomewideline=F,
-          suggestiveline=suggestiveline) # ,genomewideline  = F,suggestiveline = 4.51
+          suggestiveline=suggestiveline) 
 
