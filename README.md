@@ -20,7 +20,7 @@ This repository contains an R implementation of a multivariate genome-wide assoc
   - `p` = number of SNPs (rows)
   - `n` = number of individuals (columns)
 
-**Kinship matrix, K** 
+**Genomic relationship matrix, K** 
 - `K` should be a square matrix of dimensions `n x n`
   - `n` = number of individuals
   - Row/column names should match the individual order in P and Z
