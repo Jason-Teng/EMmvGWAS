@@ -4,7 +4,7 @@ This repository contains an R implementation of a multivariate genome-wide assoc
 
 ## Features
 - Supports multi-trait and single-trait analysis of continuous traits
-- Incorporates a kinship matrix to account for genetic relatedness
+- Incorporates a genomic relationship matrix to account for genetic relatedness
 - Efficient implementation optimized for moderate to high phenotype settings
 
 ## Inputs
@@ -16,7 +16,7 @@ This repository contains an R implementation of a multivariate genome-wide assoc
 
   
 **Genotype, Z** (SNPs as rows)
-- `P` should be a numeric matrix of dimensions `p x n`, where:
+- `Z` should be a numeric matrix of dimensions `p x n`, where:
   - `p` = number of SNPs (rows)
   - `n` = number of individuals (columns)
 
@@ -54,10 +54,31 @@ The package will automatically attempt to install these dependencies during the 
 
 
 ## Example Usage
-
+#### Option A: Run the full GWAS pipeline
 ```r
 result <- gwas_all(K, P, Z)
 ```
+
+#### Option B: Run the pipeline step by step
+```r
+# Step 1: Eigen decomposition of the kinship matrix
+r <- eigen_trans(K)
+
+# Step 2: Estimate variance components
+lambda <- vc_estimation(P, r, name = "gwas")
+
+# Step 3: Run semi-exact multivariate GWAS
+result <- semi_gwas(
+  P,
+  r,
+  Z,
+  lambda,
+  name = "gwas",
+  num_cores = 3
+)
+```
+
+This option is useful if you want to inspect the transformed kinship object, save the estimated variance components, or reuse them in later analyses.
 
 ## Output Format
 
