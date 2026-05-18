@@ -28,7 +28,7 @@ Z <- as.matrix(Genotypes[,2:ncol(Genotypes)]) # convert to numeric matrix
 head(Z)
 
 # ---------------------------------------------------
-# Step 3: Construct the kinship matrix (K)
+# Step 3: Construct the genomic relationship matrix (K)
 # ---------------------------------------------------
 KK = t(Z)%*%Z
 K = KK/mean(diag(KK)) 
