@@ -117,7 +117,7 @@ Example scripts and data are available in the `example/` directory.
 
 If you use this method in your research, please cite:
 
-> *Under review.*
+> Teng, Chin-Sheng, et al. "An Expectation and Maximization Algorithm for Multivariate Genome-wide Association Studies (EMmvGWAS)." Genetics (2026): iyag143.
 
 ## License
 
